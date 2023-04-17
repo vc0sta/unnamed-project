@@ -45,5 +45,5 @@ spec:
     services:
     - name: whoami-app
       port: 80
-  tls: # This route uses TLS
+  tls: # This route uses TLSs
       certResolver: le
