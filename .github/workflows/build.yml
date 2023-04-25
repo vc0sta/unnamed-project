@@ -22,4 +22,4 @@ jobs:
         run: bundle install
       - name: Run tests
         working-directory: ./app
-        run: bundle exec rake
+        run: bundle exec rspec
