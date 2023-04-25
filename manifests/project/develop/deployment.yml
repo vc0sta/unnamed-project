@@ -1,8 +1,14 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: develop
+---
 kind: Deployment
 apiVersion: apps/v1
 metadata:
    name: unnamed-app
-   namespace: default
+   namespace: develop
 spec:
    replicas: 1
    selector:
@@ -15,16 +21,18 @@ spec:
       spec:
          containers:
             - name: unnamed-app
-              image: ghcr.io/vc0sta/unnamed-project:main
+              image: ghcr.io/vc0sta/unnamed-project:develop
               env:
                 - name: VERSION 
                   value: 1
+         imagePullSecrets:
+           - name: dockerconfigjson-github.com
 ---
 apiVersion: v1
 kind: Service
 metadata:
    name: unnamed-app
-   namespace: default
+   namespace: develop
    labels:
       app: unnamed-app
 spec:
@@ -38,12 +46,12 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: ingressroutetls
-  namespace: default
+  namespace: develop
 spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`testando.vcosta.dev`) && PathPrefix(`/version`)
+  - match: Host(`develop.vcosta.dev`) && PathPrefix(`/version`)
     kind: Rule
     services:
     - name: unnamed-app
