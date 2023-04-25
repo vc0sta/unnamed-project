@@ -26,7 +26,7 @@ spec:
                 - name: VERSION 
                   value: '1'
          imagePullSecrets:
-           - name: dockerconfigjson-github.com
+           - name: regcred
 ---
 apiVersion: v1
 kind: Service
