@@ -6,6 +6,10 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  # Allow requests from subdomains like `main.vcosta.dev` and
+  # `develop.vcosta.dev`.
+  config.hosts << /.*\.vcosta\.dev/
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
