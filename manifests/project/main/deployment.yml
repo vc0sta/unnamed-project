@@ -29,7 +29,7 @@ spec:
                 - containerPort: 8096
                   name: http-tcp
                   protocol: TCP
-
+              imagePullPolicy: Always
          imagePullSecrets:
            - name: regcred
 ---
