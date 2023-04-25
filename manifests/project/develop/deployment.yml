@@ -24,7 +24,7 @@ spec:
               image: ghcr.io/vc0sta/unnamed-project:develop
               env:
                 - name: VERSION 
-                  value: 1
+                  value: '1'
          imagePullSecrets:
            - name: dockerconfigjson-github.com
 ---
