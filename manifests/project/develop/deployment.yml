@@ -24,7 +24,7 @@ spec:
               image: ghcr.io/vc0sta/unnamed-project:develop
               env:
                 - name: VERSION 
-                  value: '3'
+                  value: '4'
               ports:
               - containerPort: 3000
                 name: http-tcp
